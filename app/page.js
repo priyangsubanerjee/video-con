@@ -13,9 +13,9 @@ export default function Home() {
     const kitToken = ZegoUIKitPrebuilt.generateKitTokenForTest(
       parseInt(process.env.NEXT_PUBLIC_ZEGO_APP_ID),
       process.env.NEXT_PUBLIC_ZEGO_SERVER_SECRET,
-      "713-mac",
+      "713-macc",
       Date.now().toString(),
-      Date.now().toString()
+      "Priyangsu"
     );
     const zp = ZegoUIKitPrebuilt.create(kitToken);
     zp.joinRoom({
@@ -29,7 +29,7 @@ export default function Home() {
             window.location.host +
             window.location.pathname +
             "?roomID=" +
-            "713-mac",
+            "713-macc",
         },
       ],
       scenario: {
