@@ -5,7 +5,6 @@ import { useState } from "react";
 
 export default function Home() {
   const [constEnded, setConstEnded] = useState(false);
-  console.log(process.env.NEXT_PUBLIC_ZEGO_APP_ID);
   const startCon = async (element) => {
     const { ZegoUIKitPrebuilt } = await import(
       "@zegocloud/zego-uikit-prebuilt"
@@ -13,7 +12,7 @@ export default function Home() {
     const kitToken = ZegoUIKitPrebuilt.generateKitTokenForTest(
       parseInt(process.env.NEXT_PUBLIC_ZEGO_APP_ID),
       process.env.NEXT_PUBLIC_ZEGO_SERVER_SECRET,
-      "713-macc",
+      "713-macc34",
       Date.now().toString(),
       "Priyangsu"
     );
@@ -29,7 +28,7 @@ export default function Home() {
             window.location.host +
             window.location.pathname +
             "?roomID=" +
-            "713-macc",
+            "713-macc34",
         },
       ],
       scenario: {
