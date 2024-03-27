@@ -27,11 +27,11 @@ export default function Home() {
           name: "Personal link",
           url:
             window.location.protocol +
-            "//" +
-            window.location.host +
-            window.location.pathname +
-            "?roomID=" +
-            "713-macc34",
+              "//" +
+              window.location.host +
+              window.location.pathname +
+              "?roomID=" +
+              params.get("roomID") || new Date().getTime().toString(),
         },
       ],
       scenario: {
