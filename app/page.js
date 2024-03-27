@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 
 export default function Home() {
   const params = useSearchParams();
@@ -44,9 +44,11 @@ export default function Home() {
     });
   };
   return (
-    <div className="flex h-screen items-center justify-center">
-      <div className="h-full w-full" ref={startCon} />
-      {constEnded && <div className="fixed inset-0 bg-white z-50"></div>}
-    </div>
+    <Suspense>
+      <div className="flex h-screen items-center justify-center">
+        <div className="h-full w-full" ref={startCon} />
+        {constEnded && <div className="fixed inset-0 bg-white z-50"></div>}
+      </div>
+    </Suspense>
   );
 }
