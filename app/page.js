@@ -1,11 +1,12 @@
 "use client";
 
 import Image from "next/image";
+import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/router";
 import { useState } from "react";
 
 export default function Home() {
-  const router = useRouter();
+  const params = useSearchParams();
   const [constEnded, setConstEnded] = useState(false);
   const startCon = async (element) => {
     const { ZegoUIKitPrebuilt } = await import(
@@ -14,7 +15,7 @@ export default function Home() {
     const kitToken = ZegoUIKitPrebuilt.generateKitTokenForTest(
       parseInt(process.env.NEXT_PUBLIC_ZEGO_APP_ID),
       process.env.NEXT_PUBLIC_ZEGO_SERVER_SECRET,
-      router.query.roomID,
+      params.get("roomID") || new Date().getTime().toString(),
       Date.now().toString(),
       "Priyangsu"
     );
