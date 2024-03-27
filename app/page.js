@@ -1,9 +1,11 @@
 "use client";
 
 import Image from "next/image";
+import { useRouter } from "next/router";
 import { useState } from "react";
 
 export default function Home() {
+  const router = useRouter();
   const [constEnded, setConstEnded] = useState(false);
   const startCon = async (element) => {
     const { ZegoUIKitPrebuilt } = await import(
@@ -12,7 +14,7 @@ export default function Home() {
     const kitToken = ZegoUIKitPrebuilt.generateKitTokenForTest(
       parseInt(process.env.NEXT_PUBLIC_ZEGO_APP_ID),
       process.env.NEXT_PUBLIC_ZEGO_SERVER_SECRET,
-      "713-macc34",
+      router.query.roomID,
       Date.now().toString(),
       "Priyangsu"
     );
