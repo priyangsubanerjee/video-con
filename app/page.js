@@ -17,11 +17,12 @@ export default function Home() {
       process.env.NEXT_PUBLIC_ZEGO_SERVER_SECRET,
       params.get("roomID") || new Date().getTime().toString(),
       Date.now().toString(),
-      "Priyangsu"
+      new Date().getTime() + 3600 * 1000
     );
     const zp = ZegoUIKitPrebuilt.create(kitToken);
     zp.joinRoom({
       container: element,
+
       sharedLinks: [
         {
           name: "Personal link",
